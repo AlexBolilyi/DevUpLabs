@@ -1,0 +1,48 @@
+﻿@model DevUpLabs.Models.Employees
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@Html.ActionLink("Back", "Index", "Employees")
+
+@using (Html.BeginForm("Create", "Employees"))
+{
+    <table>
+        <tr>
+            <td>First Name: </td>
+            <td>
+                @Html.TextBoxFor(m => Model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name: </td>
+            <td>
+                @Html.TextBoxFor(m => Model.LastName)
+            </td>
+        </tr>
+        <tr>
+            <td>Employment Date: </td>
+            <td>
+                <input type="date"
+                       @Html.TextBoxFor(m => Model.EmploymentDate) />
+            </td>
+        </tr>
+        <tr>
+            <td>Rate: </td>
+            <td>
+                <input type="number" min="0"
+                       @Html.TextBoxFor(m => Model.Rate) />
+            </td>
+        </tr>
+        <tr>
+            <td>Job Title: </td>
+            <td>
+                @Html.DropDownListFor(m => Model.JobTitle, DevUpLabs.Controllers.EmployeesController.Employees)
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+};
